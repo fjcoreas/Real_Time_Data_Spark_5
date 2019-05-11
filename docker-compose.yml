@@ -2,10 +2,12 @@ version: '3'
 
 services:
     spark:
-        build: spark
+        image: gettyimages/spark:2.4.0-hadoop-3.0
         container_name: spark
         expose:
             - 4040
         ports:
             - 4040:4040
-        command: tail -f /dev/null
+        volumes:
+            - ./:/appdata
+

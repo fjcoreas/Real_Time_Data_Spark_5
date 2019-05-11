@@ -1,1 +1,0 @@
-FROM gettyimages/spark:2.4.0-hadoop-3.0
