@@ -1,11 +1,28 @@
 package services
 
-import com.holdenkarau.spark.testing.RDDComparisons
-import helpers.TestHelper
-import org.scalatest.FunSuite
+import java.io.File
 
-class WordCounterTest extends FunSuite with TestHelper with RDDComparisons {
+import com.holdenkarau.spark.testing.{RDDComparisons, SharedSparkContext}
+import org.apache.commons.io.FileUtils
+import org.scalatest.{BeforeAndAfterEach, FunSuite}
+
+class WordCounterTest extends FunSuite with BeforeAndAfterEach with SharedSparkContext with RDDComparisons {
   val wordCountService: WordCounter = new WordCounterImpl()
+
+  override def beforeEach() = {
+    try {
+      FileUtils.deleteDirectory(new File("./tmp/mocks"))
+    } catch {
+      case e: Exception => {}
+    }
+
+    FileUtils.forceMkdir(new File("./tmp/mocks"))
+    FileUtils.copyDirectoryToDirectory(new File("./src/test/mocks"), new File("./tmp/"))
+  }
+
+  override  def afterEach() = {
+    FileUtils.deleteDirectory(new File("./tmp/mocks"))
+  }
 
   //Testing WordCount:wordCount using fake collection
   test("test static method wordCount of object WordCount using fake collection") {
