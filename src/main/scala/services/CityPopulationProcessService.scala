@@ -12,7 +12,7 @@ object CityPopulationProcessService {
     mapMale.join(mapFemales).map(jentry=>(jentry._1, jentry._2._1 + jentry._2._2)).reduceByKey(_+_)
   }
 
-  def buildCityPopulationEntryRDD(mockLines: RDD[String]): RDD[CityPopulationEntry] = {
+  def buildCityPopulationEntryRDD(lines: RDD[String]): RDD[CityPopulationEntry] = {
     mockLines.map(line =>
       CityPopulationEntryBuilder.buildEntryFromLine(line)
     )
