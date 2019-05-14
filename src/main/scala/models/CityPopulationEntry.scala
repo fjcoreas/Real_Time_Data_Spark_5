@@ -23,7 +23,7 @@ object CityPopulationEntryBuilder {
       lineSplitted(7).replace("\"", ""),
       lineSplitted(8).toInt,
       lineSplitted(9).toDouble,
-      lineSplitted(10).replace("\"", "")
+      if(lineSplitted.length > 10) lineSplitted(10) else ""
     )
   }
 }

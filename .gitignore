@@ -1,4 +1,4 @@
-data
+tmp
 dist/*
 target/
 lib_managed/

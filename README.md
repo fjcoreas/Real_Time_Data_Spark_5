@@ -82,7 +82,7 @@ scala> val intercectedTrackedYears = city_male_population.map(row=>row(1)).inter
 intercectedTrackedYears: Array[String] = Array(2008, 1986, 2011, 1999, 2006, 1988, 2013, 2004, 1991, 2002, 1984, 1995, 2000, 1993, 1985, 1990, 2010, 2003, 2001, 1989, 2012, 1987, 1996, 2014, 1992, 2009, 2007, 2005, 1998, 1970)
 ```
 
-- Total count of females and male grouped by year component
+- Total count of females and male grouped by common year component
  
  ```terminal
 scala> val male_by_year = city_male_population.map(row=>(row(1), row(9).toDouble)).reduceByKey((c1, c2)=>c1+c2)
