@@ -29,21 +29,37 @@ Value Footnotes
 ```    
 
 
-## You can find here the lecture steps
+## You can find here the lecture steps for references
 [Lecture steps to reproduce](docs/conference_steps.md)
 
 
 ## Practical activity
 
+## First some boilerplate explanations
 
-
-
-
-
-
-
-
-
-
-
-
+```
+app (.)
+|   built.sbt   **sbt configuration file**
+|   docker-compose.yaml     **docker-compose configuration file**
+|   Dockerfile  **docker build file**
+|   Readme.md 
+|   Data
+|   |  city_male_population **distribute text file dataset with male population by year**
+|   |  city_female_population **distribute text file dataset with female population by year**
+|   src
+|   |   main
+|   |   |   scala
+|   |   |   |   cli
+|   |   |   |   |   Main.scala **Main app class, contain main(...) method, app entry point
+|   |   |   |   models
+|   |   |   |   |   CityPopulationEntry.scala   **Model case class to represent a population entry in dataset**
+|   |   |   |   services
+|   |   |   |   |   CityPopulationProcess.scala     **Main processing class**
+|   |   test
+|   |   |   |   cli
+|   |   |   |   |   MainTest.scala
+|   |   |   |   models
+|   |   |   |   |   CityPopulationEntryTest.scala
+|   |   |   |   services
+|   |   |   |   |   CityPopulationProcessTest.scala
+```
