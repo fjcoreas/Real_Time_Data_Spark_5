@@ -21,6 +21,7 @@ class MainTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
     val malePopulationPath: String = "./data/city_male_population"
     val outpath: String = "./tmp/total_count_grouped_by_common_year_component"
 
+    //Calling Main.doRun instead of main to pass test spark context
     Main.doRun(sc, Array(
       femalePopulationPath, malePopulationPath,
       outpath, "total_count_grouped_by_common_year_component"

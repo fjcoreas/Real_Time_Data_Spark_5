@@ -2,6 +2,8 @@
 
 ## Downloading laboratory boilerplate
 
+- Clone repo an move to downloaded folder
+ 
 ```terminal
 git clone https://gitlab.com/liesner/bts-rtda-lab-5.git
 cd bts-rtda-lab-5
@@ -39,10 +41,11 @@ Value Footnotes
 
 ```
 app (.)
-|   built.sbt   **sbt configuration file**
+|   built.sbt   **sbt configuration file, contains all dependency of the app**
 |   docker-compose.yaml     **docker-compose configuration file**
 |   Dockerfile  **docker build file**
 |   Readme.md 
+|   deploy.sh **script to submit spark app on local cluster, to be runned inside docker container**
 |   Data
 |   |  city_male_population **distribute text file dataset with male population by year**
 |   |  city_female_population **distribute text file dataset with female population by year**
@@ -52,7 +55,7 @@ app (.)
 |   |   |   |   cli
 |   |   |   |   |   Main.scala **Main app class, contain main(...) method, app entry point
 |   |   |   |   models
-|   |   |   |   |   CityPopulationEntry.scala   **Model case class to represent a population entry in dataset**
+|   |   |   |   |   CityPopulationEntry.scala   **case class to represent a population entry in dataset**
 |   |   |   |   services
 |   |   |   |   |   CityPopulationProcess.scala     **Main processing class**
 |   |   test
@@ -63,3 +66,4 @@ app (.)
 |   |   |   |   services
 |   |   |   |   |   CityPopulationProcessTest.scala
 ```
+

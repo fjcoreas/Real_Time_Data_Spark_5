@@ -8,4 +8,7 @@ services:
             - 4040
         ports:
             - 4040:4040
+        network_mode: "host"
+        environment:
+            SPARK_PUBLIC_DNS: localhost
 
