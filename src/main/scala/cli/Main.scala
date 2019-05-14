@@ -40,10 +40,19 @@ object Main {
       val result = CityPopulationProcessService.totalCountByYear(cityFemale, cityMale)
 
       //deleting previous version of file
-      FileUtils.deleteDirectory(new File(outputFilePath))
+      Console.println("Deleting directory: " + outputFilePath)
+      deleteFile(sc, outputFilePath)
 
       //Saving output
+      Console.println("Saving results on: " +  outputFilePath)
       result.saveAsTextFile(outputFilePath)
     }
+  }
+
+
+  def deleteFile(sc: SparkContext, path: String): Boolean = {
+    val conf = sc.hadoopConfiguration
+    val fs = org.apache.hadoop.fs.FileSystem.get(conf)
+    fs.delete(new org.apache.hadoop.fs.Path(path), true)
   }
 }

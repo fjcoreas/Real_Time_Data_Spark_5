@@ -1,0 +1,2 @@
+#!/bin/bash
+spark-submit --master local[4] target/scala-2.11/bts-rtda-lab-5_2.11-0.1.1.jar  "./data/city_female_population" "./data/city_male_population" "tmp/total_count_grouped_by_common_year_component" "total_count_grouped_by_common_year_component"
