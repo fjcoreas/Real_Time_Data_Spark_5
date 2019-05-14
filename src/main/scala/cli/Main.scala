@@ -1,11 +1,15 @@
 package cli
 
+import java.io.File
+
 import models.CityPopulationEntry
+import org.apache.commons.io.FileUtils
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import services.CityPopulationProcessService
 
 object Main {
+
   def main(args: Array[String]): Unit = {
     //Init parallel context
     val sc: SparkContext = SparkContext.getOrCreate()
@@ -34,6 +38,11 @@ object Main {
 
     if("total_count_grouped_by_common_year_component" == operation) {
       val result = CityPopulationProcessService.totalCountByYear(cityFemale, cityMale)
+
+      //deleting previous version of file
+      FileUtils.deleteDirectory(new File(outputFilePath))
+
+      //Saving output
       result.saveAsTextFile(outputFilePath)
     }
   }

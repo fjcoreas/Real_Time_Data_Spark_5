@@ -14,17 +14,6 @@ class MainTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
     fs.exists(new org.apache.hadoop.fs.Path(path + "/_SUCCESS"))
   }
 
-  override def beforeEach() = {
-    try {
-      FileUtils.deleteDirectory(new File("./tmp"))
-    } catch {
-      case e: Exception => {}
-    }
-
-    FileUtils.forceMkdir(new File("./tmp"))
-  }
-
-
   test("Should load female a male files and produce a " +
     "new file with Total count of females and male grouped by common year component") {
 
@@ -32,7 +21,10 @@ class MainTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
     val malePopulationPath: String = "./data/city_male_population"
     val outpath: String = "./tmp/total_count_grouped_by_common_year_component"
 
-    Main.doRun(sc, Array(femalePopulationPath, malePopulationPath, outpath, "total_count_grouped_by_common_year_component"))
+    Main.doRun(sc, Array(
+      femalePopulationPath, malePopulationPath,
+      outpath, "total_count_grouped_by_common_year_component"
+    ))
 
     assert(fileExist("./tmp/total_count_grouped_by_common_year_component"))
   }
