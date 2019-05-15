@@ -13,7 +13,7 @@ object CityPopulationProcessService {
   }
 
   def buildCityPopulationEntryRDD(lines: RDD[String]): RDD[CityPopulationEntry] = {
-    mockLines.map(line =>
+    lines.map(line =>
       CityPopulationEntryBuilder.buildEntryFromLine(line)
     )
   }

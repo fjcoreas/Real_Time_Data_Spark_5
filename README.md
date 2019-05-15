@@ -53,14 +53,14 @@ app (.)
 |   |   main
 |   |   |   scala
 |   |   |   |   cli
-|   |   |   |   |   Main.scala **Main app class, contain main(...) method, app entry point
+|   |   |   |   |   App.scala **Main app class, contain main(...) method, app entry point
 |   |   |   |   models
 |   |   |   |   |   CityPopulationEntry.scala   **case class to represent a population entry in dataset**
 |   |   |   |   services
 |   |   |   |   |   CityPopulationProcess.scala     **Main processing class**
 |   |   test
 |   |   |   |   cli
-|   |   |   |   |   MainTest.scala
+|   |   |   |   |   AppTest.scala
 |   |   |   |   models
 |   |   |   |   |   CityPopulationEntryTest.scala
 |   |   |   |   services

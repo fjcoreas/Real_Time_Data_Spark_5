@@ -1,14 +1,12 @@
 package cli
 
-import java.io.File
 
 import models.CityPopulationEntry
-import org.apache.commons.io.FileUtils
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import services.CityPopulationProcessService
 
-object Main {
+object App {
 
   def main(args: Array[String]): Unit = {
     //Init parallel context

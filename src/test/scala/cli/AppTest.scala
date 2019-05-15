@@ -6,7 +6,7 @@ import com.holdenkarau.spark.testing.SharedSparkContext
 import org.apache.commons.io.FileUtils
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
-class MainTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
+class AppTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
 
   def fileExist(path: String): Boolean = {
     val conf = sc.hadoopConfiguration
@@ -21,8 +21,8 @@ class MainTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
     val malePopulationPath: String = "./data/city_male_population"
     val outpath: String = "./tmp/total_count_grouped_by_common_year_component"
 
-    //Calling Main.doRun instead of main to pass test spark context
-    Main.doRun(sc, Array(
+    //Calling App.doRun instead of main to pass test spark context
+    App.doRun(sc, Array(
       femalePopulationPath, malePopulationPath,
       outpath, "total_count_grouped_by_common_year_component"
     ))
