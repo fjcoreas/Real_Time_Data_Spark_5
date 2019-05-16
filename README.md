@@ -1,5 +1,11 @@
 # Lab
 
+Development environment checklist:
+
+- [Windows](docs/windowsChecklist.md)
+- [Linux](docs/linuxChecklist.md)
+- [Mac](docs/macChecklist.md)
+
 ## Downloading laboratory boilerplate
 
 - Clone repo an move to downloaded folder
@@ -71,7 +77,8 @@ app (.)
 
 Note: 
 - For all assignment input files will be the same ```data/city_male_population``` and ```data/city_female_population```. You always need to create an output file with the result of operations in the folder ```tmp/```:
-    - The app should receive as parameters the input file path "./data/city_female_population" "./data/city_male_population" and the output path "tmp/output_name"    
+    - The app should receive as parameters the input file path "./data/city_female_population" "./data/city_male_population" 
+    and the output path "tmp/output_name"    
 
 - Sample of input file
 ```terminal
@@ -95,7 +102,8 @@ data/city_male_population
 "Kazakhstan",2003,"Total","Male","Ust-Kamenogorsk","Urban agglomeration","Estimate - de facto","Final figure, complete",2004,139247,
 ```
 
-0- Add the functionality to get total count of females and males grouped by common year component (output_name = "total_count_grouped_by_common_year_component")
+0- Add the functionality to get total count of females and males grouped by common year component 
+(output_name = "total_count_grouped_by_common_year_component")
 1- Add the functionality to get the distinct cities on female collection (output_name = distinct_city_female)
 2- Add the functionality to get the distinct cities on both collections (output_name = distinct_city_all).
 3- Add the functionality to get total count of people, male or female by year (output_name = total_count_by_year)
