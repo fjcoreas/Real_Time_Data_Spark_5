@@ -30,4 +30,20 @@ class AppTest extends FunSuite with SharedSparkContext with BeforeAndAfterEach{
     assert(fileExist("./tmp/total_count_grouped_by_common_year_component"))
   }
 
+  test("Should load female a male files and produce a " +
+    "Add the functionality to get the distinct cities on female collection") {
+
+    val femalePopulationPath:String = "./data/city_female_population"
+    val malePopulationPath: String = "./data/city_male_population"
+    val outpath: String = "./tmp/distinct_city_female"
+
+    //Calling App.doRun instead of main to pass test spark context
+    App.doRun(sc, Array(
+      femalePopulationPath, malePopulationPath,
+      outpath, "distinct_city_female"
+    ))
+
+    assert(fileExist("./tmp/distinct_city_female"))
+  }
+
 }

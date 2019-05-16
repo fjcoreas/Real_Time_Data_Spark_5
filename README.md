@@ -102,9 +102,13 @@ data/city_male_population
 "Kazakhstan",2003,"Total","Male","Ust-Kamenogorsk","Urban agglomeration","Estimate - de facto","Final figure, complete",2004,139247,
 ```
 
-0- Add the functionality to get total count of females and males grouped by common year component 
+- Add the functionality to get total count of females and males grouped by common year component 
 (output_name = "total_count_grouped_by_common_year_component")
-1- Add the functionality to get the distinct cities on female collection (output_name = distinct_city_female)
-2- Add the functionality to get the distinct cities on both collections (output_name = distinct_city_all).
-3- Add the functionality to get total count of people, male or female by year (output_name = total_count_by_year)
-4- Add the functionality to get the total count of people that live on Urban Agglomeration by year.  
+
+- Add the functionality to get the distinct cities on female collection (output_name = distinct_city_female)
+
+- Add the functionality to get the distinct cities on both collections (output_name = distinct_city_all).
+
+- Add the functionality to get total count of people, male or female by year (output_name = total_count_by_year)
+
+- Add the functionality to get the total count of people that live on Urban Agglomeration by year.  

@@ -45,6 +45,18 @@ object App {
       Console.println("Saving results on: " +  outputFilePath)
       result.saveAsTextFile(outputFilePath)
     }
+
+    if("distinct_city_female" == operation) {
+      val result = CityPopulationProcessService.getDistinctCitiesOnFemaleCollection(cityFemale)
+
+      //deleting previous version of file
+      Console.println("Deleting directory: " + outputFilePath)
+      deleteFile(sc, outputFilePath)
+
+      //Saving output
+      Console.println("Saving results on: " +  outputFilePath)
+      result.saveAsTextFile(outputFilePath)
+    }
   }
 
 

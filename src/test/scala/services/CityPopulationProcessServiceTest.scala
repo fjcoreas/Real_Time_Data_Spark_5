@@ -24,8 +24,13 @@ class CityPopulationProcessServiceTest extends FunSuite with SharedSparkContext 
       "\"Kazakhstan\",2008,\"Total\",\"Male\",\"Karaganda\",\"Urban agglomeration\",\"Estimate - de facto\",\"Final figure, complete\",2008,208286,\n",
       "\"Jordan\",2004,\"Total\",\"Male\",\"Zarqa\",\"City proper\",\"Census - de facto - complete tabulation\",\"Final figure, complete\",2007,202630,77\n"
     )
+
+    val realInput = buildMockStringRDD(mockLines);
     val expectedOutput = buildMockCityPopulationEntryRDD(mockLines)
-    val realOuput: RDD[CityPopulationEntry] = CityPopulationProcessService.buildCityPopulationEntryRDD(buildMockStringRDD(mockLines));
+
+    val realOuput: RDD[CityPopulationEntry] = CityPopulationProcessService.buildCityPopulationEntryRDD(
+      realInput
+    );
 
     assertRDDEquals(expectedOutput, realOuput)
   }
@@ -54,4 +59,23 @@ class CityPopulationProcessServiceTest extends FunSuite with SharedSparkContext 
     assertRDDEquals(expectedOutput, realOutput)
   }
 
+  test("Add the functionality to get the distinct cities on female collection"){
+    val mockFemales: Array[String] = Array[String](
+      "\"Kazakhstan\",2009,\"Total\",\"Female\",\"Aktau\",\"City proper\",\"Estimate - de facto\",\"Final figure, complete\",2009,74261,\n",
+      "\"Kazakhstan\",2008,\"Total\",\"Female\",\"Karaganda\",\"Urban agglomeration\",\"Estimate - de facto\",\"Final figure, complete\",2008,208286,\n",
+      "\"Jordan\",2004,\"Total\",\"Female\",\"Zarqa\",\"City proper\",\"Census - de facto - complete tabulation\",\"Final figure, complete\",2007,202630,77\n",
+      "\"Jordan\",2010,\"Total\",\"Female\",\"Zarqa\",\"City proper\",\"Census - de facto - complete tabulation\",\"Final figure, complete\",2007,202630,77\n")
+
+    val expectedOutput: RDD[String] = sc.parallelize(Array(
+      "Karaganda",
+      "Zarqa",
+      "Aktau"
+    ))
+
+    val rddFemales: RDD[CityPopulationEntry] = buildMockCityPopulationEntryRDD(mockFemales)
+
+    val realOutput: RDD[String] = CityPopulationProcessService.getDistinctCitiesOnFemaleCollection(rddFemales);
+
+    assertRDDEquals(expectedOutput, realOutput)
+  }
 }
