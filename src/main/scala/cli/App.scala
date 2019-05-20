@@ -57,8 +57,43 @@ object App {
       Console.println("Saving results on: " +  outputFilePath)
       result.saveAsTextFile(outputFilePath)
     }
-  }
 
+    if("distinct_city_all" == operation) {
+      val result = CityPopulationProcessService.getDistinctCitiesOnAllCollection(cityMale, cityFemale)
+
+      //deleting previous version of file
+      Console.println("Deleting directory: " + outputFilePath)
+      deleteFile(sc, outputFilePath)
+
+      //Saving output
+      Console.println("Saving results on: " +  outputFilePath)
+      result.saveAsTextFile(outputFilePath)
+    }
+
+    if("total_count_by_year" == operation) {
+      val result = CityPopulationProcessService.totalCountYear(cityMale, cityFemale)
+
+      //deleting previous version of file
+      Console.println("Deleting directory: " + outputFilePath)
+      deleteFile(sc, outputFilePath)
+
+      //Saving output
+      Console.println("Saving results on: " +  outputFilePath)
+      result.saveAsTextFile(outputFilePath)
+    }
+
+    if("urban_agglomeration_by_year" == operation) {
+      val result = CityPopulationProcessService.CountOfPeopleThatLiveonUrbanAgglomerationbyyear(cityMale, cityFemale)
+
+      //deleting previous version of file
+      Console.println("Deleting directory: " + outputFilePath)
+      deleteFile(sc, outputFilePath)
+
+      //Saving output
+      Console.println("Saving results on: " +  outputFilePath)
+      result.saveAsTextFile(outputFilePath)
+    }
+  }
 
   def deleteFile(sc: SparkContext, path: String): Boolean = {
     val conf = sc.hadoopConfiguration
